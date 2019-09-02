@@ -18,6 +18,6 @@ Content-Type: application/json
 
 GET http://localhost:4000/api/jokes
 Content-Type: application/json
-Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoidXNlciIsImlhdCI6MTU2NzM5MjMxMiwiZXhwIjoxNTY3Mzk1OTEyfQ.YQ5LoIlNOShaxhbfQdyhlQMtGB7af9Jnxc2Um_4eBJU
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoidXNlciIsImlhdCI6MTU2NzM5NzM5MCwiZXhwIjoxNTY3NDAwOTkwfQ.qGAzopmSE3tgZoJIvkCw5hR276uCuxchm5kl8Xe3Rdc
 
 {}
