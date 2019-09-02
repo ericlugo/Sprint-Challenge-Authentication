@@ -16,8 +16,8 @@ Content-Type: application/json
   "password": "password"
 }
 
-# GET http://localhost:4000/api/jokes
-# Content-Type: application/json
-# Authorization: token xxx
+GET http://localhost:4000/api/jokes
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoidXNlciIsImlhdCI6MTU2NzM5MjMxMiwiZXhwIjoxNTY3Mzk1OTEyfQ.YQ5LoIlNOShaxhbfQdyhlQMtGB7af9Jnxc2Um_4eBJU
 
-# {}
+{}
