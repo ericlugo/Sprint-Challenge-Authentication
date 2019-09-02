@@ -1,0 +1,10 @@
+// CREATE ACCOUNT - Change username on request as must be unique.
+POST http://localhost:4000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "pentesterson1",
+  "password": "password"
+}
+
+// LOGIN
