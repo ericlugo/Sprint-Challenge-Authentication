@@ -1,0 +1,23 @@
+// CREATE ACCOUNT - Change username on request as must be unique.
+POST http://localhost:4000/api/auth/register
+Content-Type: application/json
+
+{
+  "username": "pentesterson1",
+  "password": "password"
+}
+
+// LOGIN
+POST http://localhost:4000/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "pentesterson1",
+  "password": "password"
+}
+
+GET http://localhost:4000/api/jokes
+Content-Type: application/json
+Authorization: bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWJqZWN0IjoidXNlciIsImlhdCI6MTU2NzM5NzM5MCwiZXhwIjoxNTY3NDAwOTkwfQ.qGAzopmSE3tgZoJIvkCw5hR276uCuxchm5kl8Xe3Rdc
+
+{}

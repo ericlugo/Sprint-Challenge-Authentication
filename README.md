@@ -16,18 +16,18 @@ The Minimum Viable Product must be completed in three hours.
 
 Follow these steps to set up and work on your project:
 
-- [ ] Create a forked copy of this project.
-- [ ] Add your _Team Lead_ as collaborator on Github.
-- [ ] Clone your forked version of the Repository.
-- [ ] Create a new Branch on the clone: git checkout -b `firstName-lastName`.
-- [ ] Implement the project on this Branch, committing changes regularly.
-- [ ] Push commits: git push origin `firstName-lastName`.
+- [x] Create a forked copy of this project.
+- [x] Add your _Team Lead_ as collaborator on Github.
+- [x] Clone your forked version of the Repository.
+- [x] Create a new Branch on the clone: git checkout -b `firstName-lastName`.
+- [x] Implement the project on this Branch, committing changes regularly.
+- [x] Push commits: git push origin `firstName-lastName`.
 
 Follow these steps for completing your project.
 
-- [ ] Submit a Pull-Request to merge `firstName-lastName` branch into `master` on your fork. **Please don't make Pull Requests against Lambda's repository**.
-- [ ] Please don't merge your own pull request.
-- [ ] Add your _Team Lead_ as a Reviewer on the Pull-request
+- [x] Submit a Pull-Request to merge `firstName-lastName` branch into `master` on your fork. **Please don't make Pull Requests against Lambda's repository**.
+- [x] Please don't merge your own pull request.
+- [x] Add your _Team Lead_ as a Reviewer on the Pull-request
 - [ ] Your _Team Lead_ will count the challenge as done by merging the branch into _master_.
 
 ## Commits
@@ -38,21 +38,34 @@ Commit your code regularly and use descriptive messages. This helps both you (in
 
 Demonstrate your understanding of this week's concepts by answering the following free-form questions. Edit this document to include your answers after each question. Make sure to leave a blank line above and below your answer so it is clear and easy to read by your project manager.
 
-- [ ] What is the purpose of using _sessions_?
+---
 
-- [ ] What does bcrypt do to help us store passwords in a secure manner.
+- [x] What is the purpose of using _sessions_?
 
-- [ ] What does bcrypt do to slow down attackers?
+A session is a unit of information which holds the necessary information required to maintain stateful interactions from various page requests.
+The idea is that when a user begins interacting with a given system, a session object is created. This object usually contains a session_id, or some other unique identifier, and should not contain user-identifying information. The object is then added to a database upon creation. Then the client is given a cookie which has a key that identifies what session it belongs to. This pair is then used to identify a given user's authentication as the interact with the system.
 
-- [ ] What are the three parts of the JSON Web Token?
+- [x] What does bcrypt do to help us store passwords in a secure manner.
+
+Bcrypt is a password hashing function. It is used to increase the security of the information being stored in a system by ensuring that passwords are never stored in a plain text format.
+
+- [x] What does bcrypt do to slow down attackers?
+
+Bcrypt hashes a password using a salt. The salt is generated using a set number of rounds given at the time of execution. The higher the rounds, the greater the complexity. This means that a cracker would take exponentially longer computing a given password.
+
+- [x] What are the three parts of the JSON Web Token?
+
+A JWT is built in the format `xxxxx.yyyyy.zzzzz` where **`x`** is the Header, **`y`** is the Payload, and **`z`** is the Signature. The header declares the object type and the hashing algorithm used to generate the token. The payload can also be referred to a the **Claims**. The payload can contain fields and corresponding data meant to identify a session and information about the token's properties. Examples include `exp` which is used to declare a token's expiration, `iat` which is used to declare when the token was issued, and `jti` which is used to denote a unique identifier for the token. The signature is made up of a hash containing the header, the payload, and a secret.
+
+---
 
 ## Minimum Viable Product
 
 Implement an User Authentication System. Hash user's passwords before saving them to the database. Use `JSON Web Tokens` or `Sessions and Cookies` to persist authentication across requests.
 
-- [ ] Implement the `register` and `login` functionality inside `/auth/auth-router.js`. A `user` has `username` and `password`. Both properties are required.
-- [ ] Implement the `authenticate` middleware inside `/auth/authenticate-middleware.js`.
-- [ ] Write a **minimum o 2 tests** per API endpoint. Write more tests if you have time.
+- [x] Implement the `register` and `login` functionality inside `/auth/auth-router.js`. A `user` has `username` and `password`. Both properties are required.
+- [x] Implement the `authenticate` middleware inside `/auth/authenticate-middleware.js`.
+- [x] Write a **minimum o 2 tests** per API endpoint. Write more tests if you have time.
 
 **Note**: the database already has the users table, but if you run into issues, the migrations are available.
 
@@ -62,3 +75,7 @@ Build a front end to show the jokes.
 
 - [ ] Add a React client that connects to the API and has pages for `Sign Up`, `Sign In` and showing a list of `Jokes`.
 - [ ] Once you have the functionality down, style it!
+
+---
+
+###### This fork is maintained by Eric SarragaLugo
