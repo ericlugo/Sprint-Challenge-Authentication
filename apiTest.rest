@@ -8,3 +8,16 @@ Content-Type: application/json
 }
 
 // LOGIN
+POST http://localhost:4000/api/auth/login
+Content-Type: application/json
+
+{
+  "username": "pentesterson1",
+  "password": "password"
+}
+
+# GET http://localhost:4000/api/jokes
+# Content-Type: application/json
+# Authorization: token xxx
+
+# {}

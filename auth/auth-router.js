@@ -32,8 +32,42 @@ router.post('/register', async (req, res) => {
   }
 });
 
-router.post('/login', (req, res) => {
-  // implement login
+router.post('/login', async (req, res) => {
+  const loginCredentials = req.body;
+  (!loginCredentials.username || !loginCredentials.password) &&
+    res.status(400).json({
+      success: false,
+      message: `All login requests must include a username and a password`,
+    });
+
+  try {
+    const user = await findUser(loginCredentials.username);
+    if (user) {
+      if (bcrypt.compareSync(loginCredentials.password, user.password)) {
+        const token = genToken(user);
+        res.status(200).json({
+          success: true,
+          message: `Welcome ${user.username}`,
+          token,
+        });
+      } else {
+        res.status(401).json({
+          success: false,
+          message: `Incorrect Password.`,
+        });
+      }
+    } else {
+      res.status(401).json({
+        success: false,
+        message: `Invalid Username.`,
+      });
+    }
+  } catch (err) {
+    res.status(500).json({
+      success: false,
+      message: `Fatal Error.\n${err}`,
+    });
+  }
 });
 
 module.exports = router;
@@ -49,4 +83,17 @@ function findUser(username) {
   return db('users')
     .where('username', username)
     .first();
+}
+
+function genToken(user) {
+  const payload = {
+    subject: 'user',
+    user_id: user.user_id,
+  };
+  const secret = secrets.AUTH_SECRET;
+  const options = {
+    expiresIn: '1h',
+  };
+
+  return jwt.sign(payload, secret, options);
 }
